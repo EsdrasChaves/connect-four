@@ -1,0 +1,7 @@
+/.temp
+/.tmp
+/build
+/dist
+/node_modules
+.package.swp
+*.log
