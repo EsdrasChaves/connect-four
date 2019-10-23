@@ -6,24 +6,56 @@ import Board from './models/Board';
 
 const state = {
   board: new Board(),
-  currentPlayer: 1
+  currentPlayer: 0,
+  isRunning: true
+};
+
+const setListeners = () => {
+  elements.columns.forEach(column => {
+    column.addEventListener('mouseenter', e => {
+      if (state.isRunning) {
+        const col = parseInt(e.target.dataset.col);
+        const lastEmptyRow = state.board.getLastEmptyRowNum(col);
+  
+        if(lastEmptyRow !== -1)
+          boardView.addTempCell(state.currentPlayer, col, lastEmptyRow);
+      }
+    });
+  });
+
+  elements.columns.forEach(column => {
+    column.addEventListener('mouseleave', e => {
+      if (state.isRunning) {
+        const col = parseInt(e.target.dataset.col);
+        const lastEmptyRow = state.board.getLastEmptyRowNum(col);
+        if (lastEmptyRow !== -1)
+          boardView.removeTempCell(state.currentPlayer, col, lastEmptyRow);
+      }
+    });
+  });
+
+  elements.columns.forEach(column => {
+    column.addEventListener('click', e => {
+      if (state.isRunning) {
+        const col = parseInt(e.target.dataset.col);
+        const row = state.board.getLastEmptyRowNum(col);
+  
+        if (state.board.makePlay(state.currentPlayer, col, row) !== -1) {
+          boardView.addNewPiece(state.currentPlayer, col, row);
+        }
+        if (state.board.checkWinner(state.currentPlayer, col, row)) {
+          state.isRunning = false;
+        } else {
+          state.currentPlayer = 1 - state.currentPlayer;
+        }
+      }
+    });
+  });
 };
 
 
 const init = () => {
   setListeners();
 };
-
-const setListeners = () => {
-  elements.columns.forEach(column => {
-    ['mouseenter', 'mouseleave'].forEach(event => {
-      column.addEventListener(event, e => {
-        const col = parseInt(e.target.dataset.col);
-        const lastEmptyRow = state.board.getLastEmptyRowNum(col);
-        boardView.toggleTempCell(state.currentPlayer, col, lastEmptyRow);
-      });
-    });
-  });
-}
 
 init();
