@@ -51,8 +51,10 @@ const setListeners = () => {
           boardView.addNewPiece(state.currentPlayer, col, row);
           if (state.board.checkWinner(state.currentPlayer, col, row)) {
             state.isRunning = false;
+            boardView.displayWinner(state.currentPlayer);
           } else {
             state.currentPlayer = 1 - state.currentPlayer;
+            boardView.togglePlayer();
           }
         }
       }
@@ -62,6 +64,7 @@ const setListeners = () => {
 
 
 const init = () => {
+  boardView.resetBoard();
   setListeners();
 };
 

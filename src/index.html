@@ -11,55 +11,65 @@
 <body>
   <div class="container">
     <h1 class="title">Connect four</h1>
-    <div class="board">
-      <ul class="board__column" data-col=0>
-        <li class="column__space" data-col=0 data-row=0></li>
-        <li class="column__space" data-col=0 data-row=1></li>
-        <li class="column__space" data-col=0 data-row=2></li>
-        <li class="column__space" data-col=0 data-row=3></li>
-        <li class="column__space" data-col=0 data-row=4></li>
-        <li class="column__space" data-col=0 data-row=5></li>
-      </ul>
-      <ul class="board__column" data-col=1>
-        <li class="column__space" data-col=1 data-row=0></li>
-        <li class="column__space" data-col=1 data-row=1></li>
-        <li class="column__space" data-col=1 data-row=2></li>
-        <li class="column__space" data-col=1 data-row=3></li>
-        <li class="column__space" data-col=1 data-row=4></li>
-        <li class="column__space" data-col=1 data-row=5></li>
-      </ul>
-      <ul class="board__column" data-col=2>
-        <li class="column__space" data-col=2 data-row=0></li>
-        <li class="column__space" data-col=2 data-row=1></li>
-        <li class="column__space" data-col=2 data-row=2></li>
-        <li class="column__space" data-col=2 data-row=3></li>
-        <li class="column__space" data-col=2 data-row=4></li>
-        <li class="column__space" data-col=2 data-row=5></li>
-      </ul>
-      <ul class="board__column" data-col=3>
-        <li class="column__space" data-col=3 data-row=0></li>
-        <li class="column__space" data-col=3 data-row=1></li>
-        <li class="column__space" data-col=3 data-row=2></li>
-        <li class="column__space" data-col=3 data-row=3></li>
-        <li class="column__space" data-col=3 data-row=4></li>
-        <li class="column__space" data-col=3 data-row=5></li>
-      </ul>
-      <ul class="board__column" data-col=4>
-        <li class="column__space" data-col=4 data-row=0></li>
-        <li class="column__space" data-col=4 data-row=1></li>
-        <li class="column__space" data-col=4 data-row=2></li>
-        <li class="column__space" data-col=4 data-row=3></li>
-        <li class="column__space" data-col=4 data-row=4></li>
-        <li class="column__space" data-col=4 data-row=5></li>
-      </ul>
-      <ul class="board__column" data-col=5>
-        <li class="column__space" data-col=5 data-row=0></li>
-        <li class="column__space" data-col=5 data-row=1></li>
-        <li class="column__space" data-col=5 data-row=2></li>
-        <li class="column__space" data-col=5 data-row=3></li>
-        <li class="column__space" data-col=5 data-row=4></li>
-        <li class="column__space" data-col=5 data-row=5></li>
-      </ul>
+    <div class="game-wrapper">
+      <div class="player-container player-container--0">
+        <h2 class="player-container__name">Player 1</h2>
+        <span class="player-container__status">Winner</span>
+      </div>
+      <div class="board">
+        <ul class="board__column" data-col=0>
+          <li class="column__space" data-col=0 data-row=0></li>
+          <li class="column__space" data-col=0 data-row=1></li>
+          <li class="column__space" data-col=0 data-row=2></li>
+          <li class="column__space" data-col=0 data-row=3></li>
+          <li class="column__space" data-col=0 data-row=4></li>
+          <li class="column__space" data-col=0 data-row=5></li>
+        </ul>
+        <ul class="board__column" data-col=1>
+          <li class="column__space" data-col=1 data-row=0></li>
+          <li class="column__space" data-col=1 data-row=1></li>
+          <li class="column__space" data-col=1 data-row=2></li>
+          <li class="column__space" data-col=1 data-row=3></li>
+          <li class="column__space" data-col=1 data-row=4></li>
+          <li class="column__space" data-col=1 data-row=5></li>
+        </ul>
+        <ul class="board__column" data-col=2>
+          <li class="column__space" data-col=2 data-row=0></li>
+          <li class="column__space" data-col=2 data-row=1></li>
+          <li class="column__space" data-col=2 data-row=2></li>
+          <li class="column__space" data-col=2 data-row=3></li>
+          <li class="column__space" data-col=2 data-row=4></li>
+          <li class="column__space" data-col=2 data-row=5></li>
+        </ul>
+        <ul class="board__column" data-col=3>
+          <li class="column__space" data-col=3 data-row=0></li>
+          <li class="column__space" data-col=3 data-row=1></li>
+          <li class="column__space" data-col=3 data-row=2></li>
+          <li class="column__space" data-col=3 data-row=3></li>
+          <li class="column__space" data-col=3 data-row=4></li>
+          <li class="column__space" data-col=3 data-row=5></li>
+        </ul>
+        <ul class="board__column" data-col=4>
+          <li class="column__space" data-col=4 data-row=0></li>
+          <li class="column__space" data-col=4 data-row=1></li>
+          <li class="column__space" data-col=4 data-row=2></li>
+          <li class="column__space" data-col=4 data-row=3></li>
+          <li class="column__space" data-col=4 data-row=4></li>
+          <li class="column__space" data-col=4 data-row=5></li>
+        </ul>
+        <ul class="board__column" data-col=5>
+          <li class="column__space" data-col=5 data-row=0></li>
+          <li class="column__space" data-col=5 data-row=1></li>
+          <li class="column__space" data-col=5 data-row=2></li>
+          <li class="column__space" data-col=5 data-row=3></li>
+          <li class="column__space" data-col=5 data-row=4></li>
+          <li class="column__space" data-col=5 data-row=5></li>
+        </ul>
+      </div>
+      <div class="player-container player-container--1 player-container--disabled">
+        <h2 class="player-container__name">Player 2</h2>
+        <span class="player-container__status">Winner</span>
+      </div>
     </div>
     <button class="play-button">Jogar!</button>
   </div>
