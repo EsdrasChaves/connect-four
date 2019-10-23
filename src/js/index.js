@@ -7,10 +7,17 @@ import Board from './models/Board';
 const state = {
   board: new Board(),
   currentPlayer: 0,
-  isRunning: true
+  isRunning: false
 };
 
 const setListeners = () => {
+  elements.playButton.addEventListener('click', e => {
+    state.board.resetGame();
+    boardView.resetBoard();
+    state.isRunning = true;
+    state.currentPlayer = 0;
+  });
+
   elements.columns.forEach(column => {
     column.addEventListener('mouseenter', e => {
       if (state.isRunning) {
@@ -42,11 +49,11 @@ const setListeners = () => {
   
         if (state.board.makePlay(state.currentPlayer, col, row) !== -1) {
           boardView.addNewPiece(state.currentPlayer, col, row);
-        }
-        if (state.board.checkWinner(state.currentPlayer, col, row)) {
-          state.isRunning = false;
-        } else {
-          state.currentPlayer = 1 - state.currentPlayer;
+          if (state.board.checkWinner(state.currentPlayer, col, row)) {
+            state.isRunning = false;
+          } else {
+            state.currentPlayer = 1 - state.currentPlayer;
+          }
         }
       }
     });

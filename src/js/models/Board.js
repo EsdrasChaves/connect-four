@@ -19,6 +19,10 @@ export default class Board {
     return boardAux;
   }
 
+  resetGame() {
+    this.board = this.getEmptyBoard();
+  }
+
   getLastEmptyRowNum(col) {
     let rowNum = -1;
     
